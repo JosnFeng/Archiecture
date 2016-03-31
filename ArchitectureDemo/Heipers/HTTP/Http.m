@@ -18,23 +18,23 @@
         block(nil,nil);
     }
     
-    [self setCookie];
-    NSMutableDictionary *pmars=[[NSMutableDictionary alloc] initWithDictionary:params];
-    NSDictionary *http_params = [HttpComm sortParametersOnerequest:pmars];
+//    [self setCookie];
+//    NSMutableDictionary *pmars=[[NSMutableDictionary alloc] initWithDictionary:params];
+//    NSDictionary *http_params = [HttpComm sortParametersOnerequest:pmars];
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer.timeoutInterval =20;
     NSLog(@"%@", API_URL(method));
-    [manager GET:API_URL(method)
-      parameters:http_params
+    [manager GET:method
+      parameters:params
          success:^ void(NSURLSessionDataTask * task, id responseObject) {
              //        NSLog(@"请求成功 %@", [responseObject class]);
-             [self saveCookie:method];
+//             [self saveCookie:method];
              
 //             if (![self loginIsTimeOut:responseObject]) {
 //                 
-//                 block(responseObject,nil);
-//                 
+                 block(responseObject,nil);
+//
 //                 [[UrlResponseCache shareUrlCache] cacheResponseByurl:task.originalRequest.URL response:[responseObject JSONString]];
 //             }
              

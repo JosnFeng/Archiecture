@@ -9,5 +9,15 @@
 #import "BaseViewController.h"
 
 @implementation BaseViewController
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.view.backgroundColor = CCYellowColor;
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+}
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+#pragma mark- 导航栏
 
 @end

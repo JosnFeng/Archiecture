@@ -1,0 +1,6 @@
+framework module SDWebImage_Category {
+  umbrella header "SDWebImage-Category-umbrella.h"
+
+  export *
+  module * { export * }
+}

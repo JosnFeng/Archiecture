@@ -23,6 +23,8 @@
 #import "Globaldefine.h"
 #import "BaseView.h"
 #import "HomeViewController.h"
+#import "Http.h"
+#import "UIImageView+WebCache.h"
 
 #define CCAppDelegate ((AppDelegate*)[[UIApplication sharedApplication] delegate])
 #endif

@@ -15,7 +15,7 @@
 @implementation HttpComm
 #pragma mark- 加密提交的参数
 +(NSMutableDictionary *)sortParametersOnerequest:(NSMutableDictionary *)paramaters{
-    [paramaters setObject:[UIDevice currentDevice].UUID forKey:@"did"];
+//    [paramaters setObject:[UIDevice currentDevice].UUID forKey:@"did"];
 //    [paramaters setObject:TTProjectVersionNumber forKey:@"appversion"];
     [paramaters setObject:TTProjectBundleID forKey:@"appbid"];
     [paramaters setObject:[UIDevice currentDevice].timestamp forKey:@"timestamp"];

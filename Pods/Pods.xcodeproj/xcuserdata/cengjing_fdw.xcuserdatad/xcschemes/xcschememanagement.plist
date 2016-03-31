@@ -4,7 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AFNetworking.xcscheme</key>
+		<key>JSONModel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -19,10 +24,35 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SDWebImage-Category.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4878C70B21CA37D7CB8A476BF986741B</key>
+		<key>0BF8569A1D17D47E1A86EB020383E8D1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>606908E005CAD4E0EA8E09EE1D4E3068</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6847254D016329D4A531D34ED2B6DF81</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>992A3BBCA30BD318C156AF1D48C8EE11</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -32,7 +62,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C019C80EA368F863319F5DCEFF6E99CF</key>
+		<key>E85F9D32F2758AFB9E92F4320E6DAA3D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -1,6 +1,7 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "$CONFIGURATION_BUILD_DIR/AFNetworking" "$CONFIGURATION_BUILD_DIR/Masonry"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "$CONFIGURATION_BUILD_DIR/JSONModel" "$CONFIGURATION_BUILD_DIR/MJRefresh" "$CONFIGURATION_BUILD_DIR/Masonry" "$CONFIGURATION_BUILD_DIR/SDWebImage" "$CONFIGURATION_BUILD_DIR/SDWebImage-Category"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/AFNetworking/AFNetworking.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Masonry/Masonry.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -framework "AFNetworking" -framework "Masonry"
+OTHER_CFLAGS = $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/JSONModel/JSONModel.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/MJRefresh/MJRefresh.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Masonry/Masonry.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/SDWebImage-Category/SDWebImage_Category.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/SDWebImage/SDWebImage.framework/Headers" -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/AFNetworking"
+OTHER_LDFLAGS = $(inherited) -framework "CoreGraphics" -framework "JSONModel" -framework "MJRefresh" -framework "Masonry" -framework "MobileCoreServices" -framework "SDWebImage" -framework "SDWebImage_Category" -framework "Security" -framework "SystemConfiguration"
 PODS_ROOT = ${SRCROOT}/Pods
