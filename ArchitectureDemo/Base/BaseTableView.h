@@ -16,7 +16,7 @@
 @interface BaseTableView : UITableView
 //@interface BaseTableView : UITableView<statusActionDelegate>
 @property(nonatomic,strong) MJRefreshFooter *refreshFooter;
-@property(nonatomic,strong) MJRefreshHeader *refreshHeader;
+@property(nonatomic,strong) MJRefreshNormalHeader *refreshHeader;
 //@property(nonatomic,strong) StatusView *stateView;
 @property(nonatomic,assign) id<TableViewRefreshDelegate>refreshDelegate;
 - (void)addFooter;

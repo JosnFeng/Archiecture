@@ -11,11 +11,12 @@
 #import "HomeCell.h"
 #import "HomeModel.h"
 #import "AFNetworking.h"
-
+#import "MJRefresh.h"
 #define kUrl @"http://api.douban.com/v2/movie/nowplaying"
 @interface HomeViewController () <UITableViewDataSource, UITableViewDelegate, TableViewRefreshDelegate>
 @property (nonatomic, strong) BaseTableView *tabbleView;
 @property (nonatomic, strong) NSMutableArray *dataSource;
+
 @end
 
 @implementation HomeViewController
@@ -23,8 +24,6 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self requestData];
-//    self.view.backgroundColor = CCRedColor;
     [self layoutTabbleView];
 }
 
@@ -34,7 +33,9 @@
 - (void)didHeadRefresWithView {
     [self requestData];
 }
-- (void)didFootRefresWithView {}
+- (void)didFootRefresWithView {
+
+}
 #pragma mark - setters and getters
 - (NSMutableArray *)dataSource {
     if (!_dataSource) {
@@ -100,6 +101,7 @@
               NSLog(@"%@", result);
               self.dataSource = model.entries;
               [self.tabbleView reloadData];
+              [self.tabbleView doneRefres:YES];
           }];
 }
 @end

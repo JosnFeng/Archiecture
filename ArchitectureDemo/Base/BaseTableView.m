@@ -37,6 +37,7 @@
 {
     __unsafe_unretained BaseTableView *vc = self;
     
+    
     _refreshFooter = [MJRefreshFooter footerWithRefreshingBlock:^{
         // 模拟延迟加载数据，因此2秒后才调用）
         // 这里的refreshView其实就是footer
@@ -67,18 +68,30 @@
 {
     __unsafe_unretained BaseTableView *vc = self;
     
-    _refreshHeader = [MJRefreshHeader headerWithRefreshingBlock:^{
-        // 进入刷新状态就会回调这个Block
-        
-        
-        // 模拟延迟加载数据，因此2秒后才调用）
-        // 这里的refreshView其实就是header
+//    _refreshHeader = [MJRefreshHeader he:^{
+//        NSLog(@"111");
+//    }];
+    self.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         if (vc.refreshDelegate&&[self.refreshDelegate respondsToSelector:@selector(didHeadRefresWithView)]) {
             [vc.refreshDelegate didHeadRefresWithView];
         }else{
             [vc performSelector:@selector(didHeadRefresWithView) withObject:nil afterDelay:2.0];
         }
+
     }];
+//    self.refreshHeader = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//        // 进入刷新状态就会回调这个Block
+//        
+//        NSLog(@"1111");
+//        // 模拟延迟加载数据，因此2秒后才调用）
+//        // 这里的refreshView其实就是header
+//        if (vc.refreshDelegate&&[self.refreshDelegate respondsToSelector:@selector(didHeadRefresWithView)]) {
+//            [vc.refreshDelegate didHeadRefresWithView];
+//        }else{
+//            [vc performSelector:@selector(didHeadRefresWithView) withObject:nil afterDelay:2.0];
+//        }
+//    }];
+     [self.mj_header beginRefreshing];
 //    _refreshHeader = [MJRefreshHeader header];
 ////    _refreshHeader.scrollView = self;
 //    _refreshHeader.refreshingBlock = ^(MJRefreshBaseView *refreshView) {
@@ -119,7 +132,7 @@
 //    //                break;
 //    //        }
 //    //    };
-//    [_refreshHeader beginRefreshing];
+   
 //    //    _header = header;
 }
 
@@ -145,7 +158,7 @@
     // 刷新表格
     //    [self reloadData];
     // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
-    [refreshView endRefreshing];
+    [self.mj_header endRefreshing];
 }
 -(void)actionForStatus{
     

@@ -13,37 +13,5 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ArchitectureDemo/Sections/Home/Controllers/HomeViewController.m"
-            timestampString = "481108382.884324"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "-requestData"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ArchitectureDemo/Sections/Home/Controllers/HomeViewController.m"
-            timestampString = "481108420.170973"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "-didHeadRefresWithView"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
