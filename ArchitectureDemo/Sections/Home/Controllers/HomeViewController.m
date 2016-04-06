@@ -34,7 +34,7 @@
     [self requestData];
 }
 - (void)didFootRefresWithView {
-
+    [self loadMore];
 }
 #pragma mark - setters and getters
 - (NSMutableArray *)dataSource {
@@ -51,6 +51,7 @@
     _tabbleView.rowHeight = 70;
     _tabbleView.refreshDelegate = self;
     [_tabbleView registerClass:[HomeCell class] forCellReuseIdentifier:@"cell"];
+    [_tabbleView addFooter];
     [self.view addSubview:_tabbleView];
     [self.tabbleView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view);
@@ -78,22 +79,7 @@
                            @"start":@"0",
                            @"apikey":@"0df993c66c0c636e29ecbb5344252a4a"
                            };
-//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    [manager GET:kUrl parameters:dic success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-//        HomeModelData *model = [[HomeModelData alloc] initWithDictionary:responseObject error:nil];
-//        self.dataSource = model.entries;
-//        [self.tabbleView reloadData];
-//    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-//        NSLog(@"请求失败");
-//
-//    }];
-//    [manager GET:kurl parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-//        HomeModelData *model = [[HomeModelData alloc] initWithDictionary:responseObject error:nil];
-//                      self.dataSource = model.entries;
-//                      [self.tabbleView reloadData];
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        NSLog(@"请求失败");
-//    }];
+
     [Http HTTP_GET:kUrl
             params:dic
           callback:^(NSDictionary *result, NSError *error) {
@@ -103,5 +89,27 @@
               [self.tabbleView reloadData];
               [self.tabbleView doneRefres:YES];
           }];
+}
+- (void)loadMore {
+    NSDictionary *dic = @{ @"app_name": @"doubanmovie",
+                           @"client" : @"e:iPhone4,1%7Cy:iPhoneOS_6.1%7Cs:mobile%7Cf:doubanmovie_2%7Cv:3.3.1%7Cm:PP_marke%7Cudid:aa1b815b8a4d1e961347304e74b9f9593d95e1c5",
+                           @"alt":@"json",
+                           @"city":@"%E5%8C%97%E4%BA%ACversion=2",
+                           @"start":@"0",
+                           @"apikey":@"0df993c66c0c636e29ecbb5344252a4a"
+                           };
+    
+    [Http HTTP_GET:kUrl
+            params:dic
+          callback:^(NSDictionary *result, NSError *error) {
+              HomeModelData *model = [[HomeModelData alloc] initWithDictionary:result error:nil];
+              NSLog(@"%@", result);
+              for (MovieMdoel *mod in model.entries) {
+                  [self.dataSource addObject:mod];
+              }
+              [self.tabbleView reloadData];
+              [self.tabbleView doneRefres:YES];
+          }];
+    [self.tabbleView doneRefres:NO];
 }
 @end

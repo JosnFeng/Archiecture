@@ -38,7 +38,7 @@
     __unsafe_unretained BaseTableView *vc = self;
     
     
-    _refreshFooter = [MJRefreshFooter footerWithRefreshingBlock:^{
+    self.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         // 模拟延迟加载数据，因此2秒后才调用）
         // 这里的refreshView其实就是footer
         if (vc.refreshDelegate&&[self.refreshDelegate respondsToSelector:@selector(didFootRefresWithView)]) {
@@ -47,6 +47,7 @@
             [vc performSelector:@selector(didFootRefresWithView) withObject:nil afterDelay:1.0];
         }
     }];
+//    [self.mj_footer beginRefreshing];
 //    _refreshFooter.scrollView = self;
 //    _refreshFooter.refreshingBlock = ^(MJRefreshBaseView *refreshView) {
 //        
@@ -67,10 +68,6 @@
 - (void)addHeader
 {
     __unsafe_unretained BaseTableView *vc = self;
-    
-//    _refreshHeader = [MJRefreshHeader he:^{
-//        NSLog(@"111");
-//    }];
     self.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         if (vc.refreshDelegate&&[self.refreshDelegate respondsToSelector:@selector(didHeadRefresWithView)]) {
             [vc.refreshDelegate didHeadRefresWithView];
@@ -79,7 +76,7 @@
         }
 
     }];
-//    self.refreshHeader = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    //    self.refreshHeader = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
 //        // 进入刷新状态就会回调这个Block
 //        
 //        NSLog(@"1111");
@@ -137,19 +134,19 @@
 }
 
 - (void)didHeadRefresWithView{
-    [self doneRefresWithView:_refreshHeader];
+    [self doneRefresWithView:self.mj_header];
 }
 
 - (void)didFootRefresWithView{
-    [self doneRefresWithView:_refreshFooter];
+    [self doneRefresWithView:self.mj_footer];
 }
 
 - (void)doneRefres:(BOOL)ishead{
     
     if (ishead) {
-        [self doneRefresWithView:_refreshHeader];
+        [self.mj_header endRefreshing];
     }else{
-        [self doneRefresWithView:_refreshFooter];
+        [self.mj_footer endRefreshing];
     }
 }
 
